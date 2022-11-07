@@ -11,4 +11,6 @@ pub enum ApplicationError {
     SerdeTomlDeserializingError(#[from] toml::de::Error),
     #[error("Error while updating pc Anki address: {0}")]
     UpdateAddr(#[from] updateaddr::UpdateAddrError),
+    #[error("Error while Send Windows shortcut: {0}")]
+    Send(#[from] send::SendError),
 }

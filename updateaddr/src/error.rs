@@ -7,7 +7,6 @@ pub enum UpdateAddrError {
     ParseInt(#[from] std::num::ParseIntError),
     #[error("from utf8 error {0}")]
     FromUtf8(#[from] std::string::FromUtf8Error),
-    #[error("unknown data store error")]
-    Unknown,
-
+    #[error("NOt Found {0}")]
+    NotFound(String),
 }
