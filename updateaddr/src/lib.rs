@@ -107,11 +107,11 @@ async fn set_pcip_http(ankisyncd_dir: PathBuf, ipaddr: &str) -> Result<(), Updat
     if ip_changed {
         println!("检测到IP地址发生改变，将下面的地址填写到安卓Ankidroid相应界面，电脑Anki重新打开");
         println!("同步地址：\n http://{}:27701/sync/", ipaddr);
-        println!("媒体文件同步地址：\n http://{}:27701/msync", ipaddr);
+        println!("媒体文件同步地址：\n http://{}:27701/msync/", ipaddr);
     } else {
         println!("将下面的地址填写到安卓Ankidroid相应界面，电脑Anki重新打开");
         println!("同步地址：\n http://{}:27701/sync/", ipaddr);
-        println!("媒体文件同步地址：\n http://{}:27701/msync", ipaddr);
+        println!("媒体文件同步地址：\n http://{}:27701/msync/", ipaddr);
     }
     Ok(())
 }
@@ -143,8 +143,8 @@ pub async fn update_syncaddr() -> Result<(), UpdateAddrError> {
             println!("没有检测到电脑有安装Anki");
             // ,print addr info in set_pcip_http
             println!("将下面的地址填写到安卓Ankidroid相应界面，电脑Anki重新打开");
-            println!("同步地址：\n http://{}:27701", ipaddr);
-            println!("媒体文件同步地址：\n http://{}:27701/msync", ipaddr);
+            println!("同步地址：\n http://{}:27701/sync/", ipaddr);
+            println!("媒体文件同步地址：\n http://{}:27701/msync/", ipaddr);
         }
     }
 
