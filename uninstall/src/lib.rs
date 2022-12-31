@@ -27,6 +27,7 @@ if desk.exists() {
 println!("已删除电脑桌面快捷方式");   
 }
 
+println!("按任意键退出...");   
     unsafe { press(); }
 }
 
