@@ -13,8 +13,11 @@ extern { fn press(); }
 // remove shortcut in desktop
 pub fn uninstall() {
     let addon_dir=addon_ankisyncd_dir().unwrap();
-fs::remove_dir_all(addon_dir).unwrap();
+    if addon_dir.exists() {
+ fs::remove_dir_all(addon_dir).unwrap();
 println!("已删除电脑Anki插件ankisyncd，重启Anki生效");
+       
+    }
 
 let start=path::Path::new(START).join(LNK_NAME);
 let desk=desktop().unwrap().join(LNK_NAME);
