@@ -11,8 +11,8 @@ send exe to desktop and start menu
 assume that the executable be located in the same directory as this bin
 create a new crate with cargo new --lib to store code that send
 */
-static LNK_NAME: &str = "ankiserver.lnk";
-static START: &str = r"C:\ProgramData\Microsoft\Windows\Start Menu\Programs";
+pub static LNK_NAME: &str = "ankiserver.lnk";
+pub static START: &str = r"C:\ProgramData\Microsoft\Windows\Start Menu\Programs";
 #[derive(Debug, Default)]
 pub struct Send {
     desktop: Option<PathBuf>,
@@ -70,7 +70,7 @@ fn create_shortcut() -> Result<(), SendError> {
     sl.create_lnk(lnk)?;
     Ok(())
 }
-fn desktop() -> Result<PathBuf, SendError> {
+pub fn desktop() -> Result<PathBuf, SendError> {
     let d = Path::new(&output_user_profile()?).join("Desktop");
     if !d.exists() {
         return Err(SendError::new("", "desktop not exist"));

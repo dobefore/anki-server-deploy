@@ -16,7 +16,7 @@ fn output_user_profile() -> Result<String, UpdateAddrError> {
     let userprofile: String = cur_ver.get_value("USERPROFILE")?;
     Ok(userprofile)
 }
-fn addon_ankisyncd_dir() -> Result<PathBuf, UpdateAddrError> {
+pub fn addon_ankisyncd_dir() -> Result<PathBuf, UpdateAddrError> {
     let usrname_profile = output_user_profile()?;
     let addon_dir = Path::new(&usrname_profile).join(r"AppData\Roaming\Anki2\addons21");
     // give notice and return err when Anki not installed.
